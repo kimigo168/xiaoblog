@@ -1,0 +1,344 @@
+a{
+    text-decoration: none;
+}
+h1{
+    padding:12px;
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+}
+h2{
+    font-size: 30px;
+}
+h3{
+    font-size: 24px;
+}
+button{
+    outline: none;
+    border:none;
+    color:#eee;
+}
+.main-wrapper{
+    background:url(../img/banner.jpg) center center no-repeat;
+    background-attachment: fixed;/*背景不能动*/
+    background-size: cover;
+    overflow: hidden;
+}
+header{
+    background:rgba(0,0,0,0.4);/*调整图片透明度*/
+}
+nav{
+    width:100%;
+    position:fixed;
+    background: transparent;
+    height: 50px;
+}
+.navscroll-bg{
+    background-color: #626670;
+    z-index: 5;
+    background-image: linear-gradient(rgba(15,25,50,.3) 0,rgba(15,25,50,.3) 100%);
+    background-image: -webkit-linear-gradient(rgba(15,25,50,.3) 0,rgba(15,25,50,.3) 100%);
+}
+.active{
+    border-bottom: 4px solid #fff;
+}
+
+#banner{
+    background:transparent;
+    height:600px;
+}
+nav ul{
+    list-style: none;
+    margin:0;
+    float: right;
+}
+nav ul li,nav .logo{
+    display: inline-block;
+    line-height: 50px;
+    margin-right: 20px;
+}
+nav ul li a{
+    height:inherit;
+    line-height: 50px;
+    color:#fff;
+    font-weight: bold;
+    display:inline-block;/*设置后不能更改宽*/
+
+}
+nav ul li a:hover{
+    color:#089db0;
+}
+.active:hover{
+    border-bottom: 4px solid #089db0;
+}
+.logo{
+    float: left;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding-left: 10px;
+}
+.logo a{
+    color:#fff;
+}
+.logo a:hover{
+    color:#089db0;
+}
+#banner .inner{
+    max-width: 300px;
+    text-align: center;
+    margin:0 auto;
+    position: relative;
+    top:160px;
+    color:#fff;
+
+}
+.sub-heading{
+    line-height: 30px;
+    magin:30px 0;
+    font-size: 18px;
+}
+
+#banner button{
+    margin-top: 20px;
+    padding: 14px 60px;
+    cursor:pointer;
+    background:#089DB0;
+}
+#banner .inner .more-wrapper{
+    margin:0 auto;
+    margin-top: 168px;    
+}
+.more-wrapper .more{
+    margin:0 auto;
+    height: 13px;
+    width: 22px;
+    position: relative;
+    top: 30px;
+    background: url(../img/card_setts_fdb17359.png) no-repeat -114px -2px;
+    _background: url(../img/card_setts_ie_57e87032.png) no-repeat -114px -2px;
+    animation:arrow-roundmove 2s ease-out infinite;    
+}
+.more-wrapper:hover{
+    cursor:pointer;
+}
+@-webkit-keyframes arrow-roundmove{
+    0%{
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    50%{
+        -webkit-transform: translateY(-20px);
+        transform: translateY(-20px);
+    }
+    100%{
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+/* 正文部分 */
+.green-section{
+    background:#089DB0;
+    color:#fff;
+    text-align: center;
+    padding:100px 0;
+}
+.wrapper{
+    max-width: 1080px;
+    margin:0 auto;
+}
+.gray-section{
+    background:#252F34;
+    color:#fff;
+}
+.hr{
+    width:100%;
+    margin:20px auto;
+    height:2px;
+}
+.green-section .hr{
+    background:#078494;
+    width:60%;
+}
+.icon-group{
+    margin-top: 60px;
+}
+.icon-group .icon-item{
+    display:inline-block;
+     position: relative;
+}
+ .icon-group .icon{
+    width:80px;
+    height:80px;
+    background:#49bf99;
+    -webkit-transform:rotate(45deg);
+    transform:rotate(45deg);
+    margin:20px;
+}
+.icon-group span{
+    display:block;
+    position:absolute;
+    top:50px;
+    left:36px;
+}
+.gray-section .img-section{
+    width:45%;
+}
+.img-section img{
+    width:100%;
+}
+.article-preview{
+    font-size: 0;
+}
+.article-preview:nth-child(odd){
+    background:rgba(255,255,255,0.05);
+}
+.clearfix:after{
+    content:"";
+    clear: both;
+    display:block;
+}
+.article-preview > div{
+    float: left;
+}
+.gray-section .text-section{
+    width:55%;
+    position:relative;
+    top:68px;
+    left:50px;  
+}
+.text-section *{
+    width:90%;
+}
+.text-section h2{
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+.text-section p{
+    margin-top: 5px;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+.text-section  .sub-heading{
+    font-size: 20px;
+    margin-top: 0;
+}
+.purple-section{
+    background:#3F3965;
+    color:#fff;
+    padding:80px;
+}
+.purple-section .heading-wrapper{
+    text-align: center;
+}
+.purple-section .hr{
+    background:#373259;
+    width:60%;
+}
+.card {
+    float: left;
+    width:50%;
+    min-height: 300px;
+    padding:50px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.card p{
+    margin-top: 25px;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+.card:first-child{
+    background:rgba(0,0,0,0.04);
+}
+.card:nth-child(2){
+    background:rgba(0,0,0,0.08);
+}
+.card:nth-child(3){
+    background:rgba(0,0,0,0.12);
+}
+.card:nth-child(4){
+    background:rgba(0,0,0,0.16);
+}
+.card:nth-child(5){
+    background:rgba(0,0,0,0.20);
+}
+.card:nth-child(6){
+    background:rgba(0,0,0,0.24);
+}
+footer{
+    background:#333;
+    color:#fff;
+    min-height: 200px;
+    text-align: center;
+}
+.footer-wrapper{
+    idth: 1080px;
+    margin: 0 auto;
+}
+ul.share-group{
+    display:block;
+    padding:50px 50px 10px;
+}
+.share-group li{
+    display:inline-block;
+    padding:10px;
+}
+.share-group a{
+    color:#fff;
+}
+.share-group a:hover{
+    color:#49bf99;
+}
+.copy{
+    padding:20px;
+}
+/* mask */
+.mask{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:rgba(0,0,0,0.3);
+}
+/* 侧边栏 */
+#sidebar{
+    position:fixed;
+    top:0;
+    bottom:0;
+    right:-300px;/*取代display:none;*/
+    width:300px;
+    height:200px;
+    padding:20px 0;
+    background:#333;
+    color:#fff;
+    transition:right 0.5s;
+}
+#sidebar ul a{
+    width:100%;
+    color:#fff;
+    display:inline-block;
+    padding:10px 30px;
+}
+#sidebar ul a:hover{
+    color:#089db0;
+    background-color:#444;
+}
+/* 返回顶部 */
+.back-to-top{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    background:#888;
+    border:1px solid #888;
+    padding:6px;
+    cursor:pointer;
+}
+.back-to-top:active{
+    border:none;
+}
+
+ .animate-arrow {
+   
