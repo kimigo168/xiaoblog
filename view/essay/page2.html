@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传文件</title>
+
+</head>
+<body>
+    <br>
+    <p>http://www.360doc.com/content/14/0214/18/1457948_352511416.shtml</p>
+    <p>http://blog.csdn.net/qingyjl/article/details/52003567</p>
+    <br>
+    <div class="file_upload">
+        <div class="progress"></div>
+    </div>
+    <input id="upload" class="upload" type="file" placeholder="请上传文件">
+    <div class="img_holder"></div>
+    <script src="../../js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(".upload").change(function(e){
+            console.log(e);
+            var file = e.target.files[0];
+            console.log(file);
+            var type = file.type.split('/')[0];
+            if(type!="image"){
+                alert("请重新上传");
+            }
+            var reader = new FileReader();
+            console.log(reader);
+            reader.readAsDataURL(file);
+            reader.onloadstar = function(){
+                console.log("start");//开始读取
+            }
+            reader.onprogress = function(e){
+                //这个是定时触发的事件，文件较大的时候较明显
+                var p = '已完成：' + Math.round(e.loaded / e.total * 100) + '%' ;
+                $(".file_upload").find(".progress").html(p);
+                console.log('uploading');  //文件较大，就会出现多个uploading
+            };
+            reader.onabort = function(){
+                console.log('abort'); //用作取消上传功能
+            };
+            reader.onerror = function(){
+                console.log('error'); //文件读取出错的时候触发，暂模拟不出
+            };
+            reader.onload = function(){
+                console.log('load complete'); //完成
+                console.log(this);
+            };
+            reader.onloadend = function (e) {
+                var dataURL = reader.result,
+                    image = '<img src="'+dataURL+'" width="200"/>', //预览图片
+                    text = '<span>"'+dataURL+'"</span>'; //测试预览text
+                var name = file.name,size = Math.round(file.size / 1024);
+
+                var div = '<p>Name: '+name+'</p><p>Size: '+size+'kb</p>';
+                var imglist = '<div class="img_box"><span class="delete">删除</span><br><br><br>'+image + div+'</div>';
+             $(".img_holder").html(imglist);      
+            };
+        });
+        // var file = e.target.files[0];//获取file对象
+        // console.log(file);
+        // var reader = new FileReader();
+        // reader.readAsDataURL(file);
+    </script>
+    <script type="text/javascript">
+    //     $(function(){
+    //     var src="http://img14.360buyimg.com/cms/jfs/t865/11/574654599/41558/deec6fd5/5530ca32N81ba6c76.jpg",
+    //         img = $('<img src="' + src + '">');
+    //     img.on('load', function(){
+    //         var w = img[0].width,
+    //             h = img[0].height;
+    //         console.log(w, h); // 568 480
+    //     });
+    // });
+    </script>
+</body>
+</html>
