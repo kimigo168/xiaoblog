@@ -8,5 +8,64 @@
     <div>
         <h1>Hello World!</h1>
     </div>
+    <input type="text" maxlength="2" onkeyup="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+	<input type="text" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''">
+	<input type="text" id="ttext" class="ime" onkeypress="return myNumberic(event)" maxlength="6" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" onkeyup="value=value.replace(/[^\d+\.?\d]/g,'')"/>
+	<input type="text" id="text1" class="ime" onkeypress="return myNumberic1(event)" maxlength="6" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" onkeyup="value=value.replace(/[^\d+\.?\d]/g,'')"/>
+	<script>
+		function myNumberic(e,len) {
+		    var obj=e.srcElement || e.target;
+		    var dot=obj.value.indexOf(".");//alert(e.which);
+		    console.log('obj.value')
+		    console.log(obj.value)
+		    console.log(dot)
+		    len =(typeof(len)=="undefined")?2:len;
+		    var  key=e.keyCode|| e.which;
+		    if(key==8 || key==9 || key==46 || (key>=37  && key<=40))//这里为了兼容Firefox的backspace,tab,del,方向键
+		        return true;
+		    if (key<=57 && key>=48) { //数字,不能输入正负号
+		        if(dot==-1)//没有小数点
+		            return true;
+		        else if(obj.value.length<=dot+len)//小数位数
+		        	
+		            return true;
+		        } else if((key==46) && dot==-1){//小数点
+		            return true;
+		    }        
+		    return false;
+		}
+		function myNumberic1(e,len) {
+		    var obj=e.srcElement || e.target;
+		    var dot=obj.value.indexOf(".");//alert(e.which);
+		    console.log('obj.value')
+		    console.log(obj.value);
+		    console.log(dot)
+		    len =(typeof(len)=="undefined")?2:len;
+		    var  key=e.keyCode|| e.which;
+		    if(key==8 || key==9 || key==46 || (key>=37  && key<=40))//这里为了兼容Firefox的backspace,tab,del,方向键
+		    	console.log('111')
+		    	console.log(key)
+		    	if(key == 46 && dot>-1){
+		    		return false;
+		    	}
+		        return true;
+		    if(key<=57 && key>=48) { //输入的是数字
+		    	if(dot == -1){ //一直没有小数点
+		    		console.log('222')
+		    		return true;
+
+		    	}else if(obj.value.length<=dot+len){ //小数点位数为0
+		    		console.log('333')
+		    		return true;
+		    	}
+		    }else if(dot>-1){
+		    	console.log('4444')
+		    	return false;
+		    }
+		    console.log('5555')
+		    return false;
+		}
+		//onkeyup="value=value.replace(/[^\d+\.?\d]/g,'')"
+	</script>
 </body>
 </html>
